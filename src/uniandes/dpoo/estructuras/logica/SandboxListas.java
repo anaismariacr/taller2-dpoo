@@ -149,15 +149,16 @@ public class SandboxListas
      *        posición es mayor que el tamaño de la lista, se inserta el valor en la última posición.
      */
     public void insertarEntero( int entero, int posicion )
-    {
+    {	
     	if(posicion < 0) {
-    		posicion = 0;
+    		listaEnteros.add(0, entero);
     	}
-    	if(posicion >= listaEnteros.size()) {
-    		posicion = listaEnteros.size() - 1;
+    	else if(posicion >= listaEnteros.size()) {
+    		listaEnteros.add(entero);
     	}
-    	listaEnteros.add(posicion, entero);
-
+    	else {
+    		listaEnteros.add(posicion, entero);
+    	}
     }
 
     /**
@@ -166,8 +167,10 @@ public class SandboxListas
      *        no debe hacer nada.
      */
     public void eliminarEnteroPorPosicion( int posicion )
-    {
-    	listaEnteros.remove(posicion);
+    {	
+    	if(posicion >= 0 && posicion < listaEnteros.size()) {
+    		listaEnteros.remove(posicion);
+    	}
     }
 
     /**
@@ -196,7 +199,7 @@ public class SandboxListas
     {
     	List<String> nuevoCadenas = new ArrayList<>();
     	for(int i = 0; i < objetos.size(); i++) {
-    		String str = (String) objetos.get(i);
+    		String str = objetos.get(i).toString();
     		nuevoCadenas.add(str);
     	}
     	listaCadenas = nuevoCadenas;

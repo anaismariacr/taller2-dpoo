@@ -141,13 +141,15 @@ public class SandboxConjuntos
     public void eliminarCadenaSinMayusculasOMinusculas( String cadena )
     {
     	String lower = cadena.toLowerCase();
-    	for(String i : arbolCadenas) {
-    		if(i.toLowerCase().equals(lower)){
-    			arbolCadenas.remove(i);
+    	Iterator<String> iterator = arbolCadenas.iterator();
+    	while(iterator.hasNext()) {
+    		String elem = iterator.next().toLowerCase();
+    		if(elem.equals(cadena)) {
+    			iterator.remove();
     		}
     	}
-    	
     }
+    	
 
     /**
      * Elimina la primera cadena del conjunto

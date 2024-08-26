@@ -300,7 +300,7 @@ public class SandboxArreglos
     {
     	int counter = 0;
     	for(int i = 0; i < arregloCadenas.length; i++) {
-    		if(arregloCadenas[i].equals(cadena)) {
+    		if(arregloCadenas[i].toLowerCase().equals(cadena.toLowerCase())) {
     			counter++;
     		}
     	}        

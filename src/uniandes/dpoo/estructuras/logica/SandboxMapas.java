@@ -72,9 +72,13 @@ public class SandboxMapas
     public String getPrimera( )
     {
         List<String> llaves = getLlavesComoListaInvertida();
-        int pos = llaves.size() - 1;
-        return llaves.get(pos);
-
+        int tamano = llaves.size();
+        if(tamano == 0) {
+        	return null;
+        }
+        else {
+            return llaves.get(tamano - 1);
+        }
     }
 
     /**
@@ -86,7 +90,13 @@ public class SandboxMapas
     public String getUltima( )
     {
     	List<String> llaves = getLlavesComoListaInvertida();
-    	return llaves.get(0);
+    	int tamano = llaves.size();
+    	if(tamano == 0) {
+    		return null;
+    	}
+    	else {
+    		return llaves.get(0);
+    	}
     }
 
     /**
